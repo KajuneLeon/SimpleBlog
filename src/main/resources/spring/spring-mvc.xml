@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.alibaba.com/schema/stat http://www.alibaba.com/schema/stat.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- Controller组件扫描 -->
+    <context:component-scan base-package="com.kajune.ssm.simpleblog" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- 动态扫描 -->
+    <mvc:annotation-driven/>
+
+    <!-- 静态资源扫描 -->
+    <!--<mvc:default-servlet-handler/>-->
+
+    <!-- 静态资源映射 -->
+    <mvc:resources mapping="/forward/css/**" location="/resource/Home/css/"/>
+    <mvc:resources mapping="/forward/fonts/**" location="/resource/Home/fonts/"/>
+    <mvc:resources mapping="/forward/js/**" location="/resource/Home/js/"/>
+    <mvc:resources mapping="/backend/css/**" location="/resource/Admin/css/"/>
+    <mvc:resources mapping="/backend/fonts/**" location="/resource/Admin/fonts/"/>
+    <mvc:resources mapping="/backend/js/**" location="/resource/Admin/js/"/>
+    <mvc:resources mapping="/backend/editor/**" location="/resource/Admin/editor/"/>
+
+    <!-- 视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/view/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- 文件上传解析器 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+        <!-- 50MB -->
+        <property name="maxUploadSizePerFile" value="#{1024*1024*50}"/>
+    </bean>
+
+
+</beans>
