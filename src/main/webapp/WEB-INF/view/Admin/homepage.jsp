@@ -57,7 +57,7 @@
             <!-- /#侧边栏 -->
 
             <!-- 主页内容 -->
-            <div id="page-content-wrapper" class="container background">
+            <div id="page-content-wrapper" class="container">
                 <%-- 侧边栏开关按钮 --%>
                 <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas">
                     <span class="hamb-top"></span>
@@ -67,9 +67,10 @@
 
                 <%-- 需要重写 --%>
                 <rapid:block name="siteContent">
-                    <div class="middle">
+                    <div class="container text-center">
                         <h1 style="color:white; font-size: 56px">欢迎回来!</h1>
                         <h1 style="color:white; font-size: 56px">#username</h1>
+                        <img src="/uploads/github.jpg" width="144px" height="144px"/>
                     </div>
                 </rapid:block>
 

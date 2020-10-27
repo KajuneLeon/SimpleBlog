@@ -10,7 +10,7 @@ body {
 body,
 html {
   height: 100%;
-  background-color: #583e7e;
+  background: url("/uploads/bg.jpg") fixed;
 }
 .nav .open > a {
   background-color: transparent;
@@ -291,6 +291,7 @@ body,
 html {
   background-color: rgba(255, 255, 255, 0.7);
 }
+
 body h1,
 body h2,
 body h3,
@@ -324,8 +325,14 @@ li img {
   transform: translate(-50%,-50%);
 }
 
+.welContainer{
+  width: 100%;
+  height: 100%;
+}
+
 .background{
-  background: url("/uploads/bg.jpg");
+  background-image: url("/uploads/bg.jpg");
+  background-attachment: fixed;
   width: 100%;
   height: 100%;
 }

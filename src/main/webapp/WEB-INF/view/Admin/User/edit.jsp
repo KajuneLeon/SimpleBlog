@@ -37,6 +37,7 @@
                 <input type="submit" class="btn btn-success" type="text" value="保存"/>
             </form>
         </div>
+        <br/><br/><br/>
     </div>
     <%-- 头像上传预览 --%>
     <script type="text/javascript">

@@ -2,8 +2,8 @@
 <%@ taglib prefix="rapid" uri="http://www.rapid-framework.org.cn/rapid" %>
 
 <rapid:override name="altHead">
-    <link rel="stylesheet" href="/editor/css/editormd.css"/>
-    <script src="/editor/editormd.min.js"></script>
+    <link rel="stylesheet" href="/backend/editor/css/editormd.css"/>
+    <script src="/backend/editor/editormd.min.js"></script>
 </rapid:override>
 
 <%-- 重写siteContent--%>
@@ -33,6 +33,7 @@
                 </div>
             </form>
         </div>
+        <br/><br/><br/>
     </div>
 
 
@@ -43,7 +44,7 @@
             width: "90%",
             height: "70%",
             syncScrolling: "single",
-            path: "/editor/lib/",
+            path: "/backend/editor/lib/",
             saveHTMLToTextarea: true,
             emoji: false,
             taskList: true,
