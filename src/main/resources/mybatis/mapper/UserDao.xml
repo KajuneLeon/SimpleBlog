@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace:待实现Dao接口的全类名 -->
+<mapper namespace="com.jiajunliang.ssm.simpleblog.dao.UserDao">
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+    <resultMap id="userMap" type="com.jiajunliang.ssm.simpleblog.bean.User">
+        <id property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="userPassword" column="user_password"/>
+        <result property="userEmail" column="user_email"/>
+        <result property="userGithub" column="user_github"/>
+        <result property="userDescript" column="user_descript"/>
+        <result property="userPortrait" column="user_portrait"/>
+    </resultMap>
+
+    <!-- User queryByUsername(@Param("userName") String username) -->
+    <select id="queryByUsername" resultMap="userMap">
+        select * from user where user_name=#{userName}
+    </select>
+
+    <!-- User queryByUsernameAndPassword(@Param("userName") String userName, @Param("userPassword") String userPassword) -->
+    <select id="queryByUsernameAndPassword" resultMap="userMap">
+        select * from user where user_name=#{userName} and user_password=#{userPassword}
+    </select>
+
+    <!-- int updateUser(User user) -->
+    <update id="updateUser">
+        update user set
+        user_name = #{userName},
+        user_password = #{userPassword},
+        user_email = #{userEmail},
+        user_github = #{userGithub},
+        user_descript = #{userDescript},
+        user_portrait = #{userPortrait}
+        where
+        user_id = #{userId}
+    </update>
+
+    <!-- int insertUser(User user) -->
+    <insert id="insertUser">
+        insert into user
+        (user_name, user_password, user_email, user_github, user_descript, user_portrait)
+        values
+        (#{userName}, #{userPassword}, #{userEmail}, #{userGithub}, #{userDescript}, #{userPortrait})
+    </insert>
+
+    <!-- int deleteUser(@Param("userId") int userId) -->
+    <delete id="deleteUser">
+        delete from user where user_id=#{userId}
+    </delete>
+
+
+
+
+</mapper>

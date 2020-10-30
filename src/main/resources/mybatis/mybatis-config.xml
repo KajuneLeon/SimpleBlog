@@ -7,6 +7,7 @@
     <settings>
         <!-- 开启全局缓存（二级缓存）开关-->
         <setting name="cacheEnabled" value="true"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
     
     <plugins>

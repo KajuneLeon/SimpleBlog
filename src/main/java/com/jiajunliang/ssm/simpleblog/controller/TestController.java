@@ -1,9 +1,13 @@
-package com.kajune.ssm.simpleblog.controller;
+package com.jiajunliang.ssm.simpleblog.controller;
 
+import com.jiajunliang.ssm.simpleblog.bean.User;
+import com.jiajunliang.ssm.simpleblog.dao.UserDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @program: SimpleBlog
@@ -13,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
  **/
 @Controller
 public class TestController {
+
+    @Autowired
+    UserDao userDao;
 
     @RequestMapping(value = {"/"})
     public String index() {
@@ -62,7 +69,7 @@ public class TestController {
         return "Admin/Category/editList";
     }
 
-    @RequestMapping(value = {"/admin/login"})
+    @RequestMapping(value = {"/login"})
     public String login() {
         System.out.println("hi");
         return "Admin/User/login";
@@ -75,8 +82,5 @@ public class TestController {
         model.addAttribute("test", 1);
         return "Home/success";
     }
-
-
-
 
 }
