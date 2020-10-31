@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isErrorPage="true" %>
 <%@ taglib prefix="rapid" uri="http://www.rapid-framework.org.cn/rapid" %>
 
 <%-- 重写siteContent --%>
@@ -7,32 +7,39 @@
     <div class="container">
         <div style="font-size: 50px; color: white; text-align: center">用户信息</div>
         <div class="container userContainer">
-            <form action="#" method="post" enctype="multipart/form-data">
-                <div class="form-group"></div>
+            <div class="form-group">
+                <h3 style="color: red">${empty msg ? "": msg}</h3>
+            </div>
+            <form action="/admin/user/updatePortrait" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="avatar">头像</label><br/>
-                    <img id="avatarImg"class="img-rounded" src="/uploads/github.jpg" style="width: 100px;height: 100px"/><br/><br/>
-                    <input id="avatar" class="btn btn-success" type="file" name="avatar"/>
+                    <img id="avatarImg"class="img-rounded" src="${user.userPortrait}" style="width: 100px;height: 100px"/><br/><br/>
+                    <input id="avatar" class="btn btn-success" type="file" accept="image/jpeg" name="portrait"/><br/>
+                    <input type="submit" class="btn btn-success" type="text" value="上传"/>
                 </div>
+            </form>
+            <form action="/admin/user/update/${user.userId}" method="post">
+                <input type="hidden" name="_method" value="PUT"/>
                 <div class="form-group">
                     <label for="username">用户名</label>
-                    <input id="username" class="form-control" type="text" value="#Username" name="username"/>
+                    <input id="username" class="form-control" type="text" value="${user.userName}" name="userName"/>
+                    <h5 id="usernameMsg"style="color: red"></h5>
                 </div>
                 <div class="form-group">
                     <label for="password">密码</label>
-                    <input id="password" class="form-control" type="password" placeholder="请输入密码" name="password"/>
+                    <input id="password" class="form-control" type="password" value="${user.userPassword}" name="userPassword"/>
                 </div>
                 <div class="form-group">
                     <label for="email">邮箱</label>
-                    <input id="email" class="form-control" type="text" value="#Email" name="email"/>
+                    <input id="email" class="form-control" type="text" value="${user.userEmail}" name="userEmail"/>
                 </div>
                 <div class="form-group">
                     <label for="github">GitHub</label>
-                    <input id="github" class="form-control" type="text" value="#GitHub" name="github"/>
+                    <input id="github" class="form-control" type="text" value="${user.userGithub}" name="userGithub"/>
                 </div>
                 <div class="form-group">
                     <label for="description">自我描述</label>
-                    <textarea id="description" class="form-control" name="description"></textarea>
+                    <textarea id="description" class="form-control" name="userDescript">${user.userDescript}</textarea>
                 </div>
                 <input type="submit" class="btn btn-success" type="text" value="保存"/>
             </form>
@@ -59,6 +66,26 @@
             }
             return url ;
         }
+    </script>
+    <%-- 用户名检查 --%>
+    <script type="text/javascript">
+        <%
+            String basePath = request.getScheme()+ "://" + request.getServerName()
+            + ":" + request.getServerPort()
+            + request.getContextPath();
+            pageContext.setAttribute("basePath", basePath);
+        %>
+        $("#username").blur(function () {
+            $.ajax({
+                url:"${basePath}" + "/admin/user/checkUserName",
+                data:"userId=${user.userId}&userName="+$("#username").val(),
+                type:"GET",
+                success: function (data) {
+                    $("#usernameMsg").html(data);
+                },
+                dataType:"json"
+            })
+        })
     </script>
 
 </rapid:override>

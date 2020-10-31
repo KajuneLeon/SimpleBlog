@@ -1,5 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isErrorPage="true" %>
 <%@ taglib prefix="rapid" uri="http://www.rapid-framework.org.cn/rapid" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="zh">
     <head>
         <meta charset="UTF-8">
@@ -24,12 +25,17 @@
             <!-- 侧边栏 -->
             <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
                 <ul class="nav sidebar-nav">
-                    <li class="sidebar-brand"><a href="#">Kajune's Blog</a></li>
+                    <li class="sidebar-brand"><a href="/admin">Kajune's Blog</a></li>
                     <li>
-                        <img class="img-rounded" src="/uploads/github.jpg" alt="头像"/>
+                        <c:if test="${empty user.userPortrait}">
+                            <img class="img-rounded" src="/uploads/github.jpg" alt="头像"/>
+                        </c:if>
+                        <c:if test="${not empty user.userPortrait}">
+                            <img class="img-rounded" src="${user.userPortrait}" alt="头像"/>
+                        </c:if>
                     </li>
                     <li>
-                        <a href="/admin/user"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;Hi, #username</a>
+                        <a href="/admin/user"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;Hi, ${user.userName}</a>
                     </li>
                     <li>
                         <a href="/"><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;&nbsp;&nbsp;主页</a>
@@ -50,7 +56,7 @@
                         <a href="#" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-comment"></i>&nbsp;&nbsp;&nbsp;&nbsp;评论</a>
                     </li>
                     <li>
-                        <a href="#"><i class="glyphicon glyphicon-ice-lolly"></i>&nbsp;&nbsp;&nbsp;&nbsp;退出</a>
+                        <a href="/logout"><i class="glyphicon glyphicon-ice-lolly"></i>&nbsp;&nbsp;&nbsp;&nbsp;退出</a>
                     </li>
                 </ul>
             </nav>
@@ -69,8 +75,8 @@
                 <rapid:block name="siteContent">
                     <div class="container text-center">
                         <h1 style="color:white; font-size: 56px">欢迎回来!</h1>
-                        <h1 style="color:white; font-size: 56px">#username</h1>
-                        <img src="/uploads/github.jpg" width="144px" height="144px"/>
+                        <h1 style="color:white; font-size: 56px">${user.userName}</h1>
+                        <img src="${user.userPortrait}" width="144px" height="144px" class="img-rounded"/>
                     </div>
                 </rapid:block>
 

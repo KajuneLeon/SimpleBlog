@@ -14,20 +14,25 @@ public class UserDaoTest {
     public static UserDao userDao = applicationContext.getBean("userDao", UserDao.class);
 
     @Test
+    public void queryByUserId() {
+        System.out.println(userDao.queryByUserId(21));
+    }
+
+    @Test
     public void queryByUsername() {
-        System.out.println(userDao.queryByUsername("liangjiajun"));
+        System.out.println(userDao.queryByUsername("liangjiajun11"));
     }
 
     @Test
     public void queryByUsernameAndPassword() {
-        System.out.println(userDao.queryByUsernameAndPassword("liangjiajun", "123456"));
+        System.out.println(userDao.queryByUserNameAndPassword("liangjiajun", "123456"));
     }
 
     @Test
     public void updateUser() {
         User user = userDao.queryByUsername("liangjiajun");
         user.setUserDescript("changed descript11");
-        userDao.updateUser(user);
+        System.out.println(userDao.updateUser(user));
         System.out.println(userDao.queryByUsername("liangjiajun"));
     }
 
@@ -35,13 +40,13 @@ public class UserDaoTest {
     public void insertUser() {
         User user = userDao.queryByUsername("liangjiajun");
         user.setUserDescript("added descript");
-        user.setUserName("ADD");
-        userDao.insertUser(user);
+        user.setUserName("add");
+        System.out.println(userDao.insertUser(user));
         System.out.println(userDao.queryByUsername("ADD"));
     }
 
     @Test
     public void deleteUser() {
-        userDao.deleteUser(12);
+        System.out.println(userDao.deleteUser(13));
     }
 }

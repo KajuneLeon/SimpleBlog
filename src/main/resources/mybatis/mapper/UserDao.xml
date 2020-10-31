@@ -15,13 +15,18 @@
         <result property="userPortrait" column="user_portrait"/>
     </resultMap>
 
+    <!-- User queryByUserId(@Param("userId") int userId) -->
+    <select id="queryByUserId" resultMap="userMap">
+        select * from user where user_id=#{userId}
+    </select>
+
     <!-- User queryByUsername(@Param("userName") String username) -->
     <select id="queryByUsername" resultMap="userMap">
         select * from user where user_name=#{userName}
     </select>
 
     <!-- User queryByUsernameAndPassword(@Param("userName") String userName, @Param("userPassword") String userPassword) -->
-    <select id="queryByUsernameAndPassword" resultMap="userMap">
+    <select id="queryByUserNameAndPassword" resultMap="userMap">
         select * from user where user_name=#{userName} and user_password=#{userPassword}
     </select>
 

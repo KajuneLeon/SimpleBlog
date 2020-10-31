@@ -45,11 +45,11 @@ public class TestController {
         return "Admin/homepage";
     }
 
-    @RequestMapping(value = {"/admin/user"})
-    public String user() {
-        System.out.println("hi");
-        return "Admin/User/edit";
-    }
+//    @RequestMapping(value = {"/admin/user"})
+//    public String user() {
+//        System.out.println("hi");
+//        return "Admin/User/edit";
+//    }
 
     @RequestMapping(value = {"/admin/article/list"})
     public String articleList() {
@@ -69,11 +69,11 @@ public class TestController {
         return "Admin/Category/editList";
     }
 
-    @RequestMapping(value = {"/login"})
-    public String login() {
-        System.out.println("hi");
-        return "Admin/User/login";
-    }
+//    @RequestMapping(value = {"/login"})
+//    public String login() {
+//        System.out.println("hi");
+//        return "Admin/User/login";
+//    }
 
     @RequestMapping(value = {"/admin/article/submitArticle"})
     public String submitArticle(@RequestParam("blog-editormd-html-code") String blogMd, Model model) {
