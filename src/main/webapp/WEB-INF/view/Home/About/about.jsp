@@ -9,9 +9,9 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="page-heading">
-            <img src="/uploads/github.jpg" class="rounded" style="height: 120px; width: 120px;"/>
-            <h1>Kajune</h1>
-            <span class="subheading">&lt;!-- 分享技术，分享错误，分享成长 --&gt;</span>
+            <img src="${sessionBlogConfig.blogPortrait}" class="rounded" style="height: 120px; width: 120px;"/>
+            <h1>${sessionBlogConfig.blogName}</h1>
+            <span class="subheading">${sessionBlogConfig.blogSubtitle}</span>
           </div>
         </div>
       </div>
@@ -23,9 +23,9 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <p class="text-center">Email: xxxxxxx@xx.com</p>
-        <p class="text-center">Github: <a href="https://github.com/KajuneLeon">https://github.com/KajuneLeon</a></p>
-        <p class="text-center">#Desprition</p>
+        <p class="text-center">Email: ${sessionBlogConfig.blogEmail}</p>
+        <p class="text-center">Github: <a href="${sessionBlogConfig.blogGithub}">${sessionBlogConfig.blogGithub}</a></p>
+        <p class="text-center">${sessionBlogConfig.blogDescript}</p>
       </div>
     </div>
   </div>

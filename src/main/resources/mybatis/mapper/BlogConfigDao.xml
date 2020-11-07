@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace:待实现Dao接口的全类名 -->
+<mapper namespace="com.jiajunliang.ssm.simpleblog.dao.BlogConfigDao">
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+    <resultMap id="blogConfigMap" type="com.jiajunliang.ssm.simpleblog.bean.BlogConfig">
+        <id property="blogId" column="blog_id"/>
+        <result property="blogName" column="blog_name"/>
+        <result property="blogSubtitle" column="blog_subtitle"/>
+        <result property="blogEmail" column="blog_email"/>
+        <result property="blogGithub" column="blog_github"/>
+        <result property="blogQQ" column="blog_qq"/>
+        <result property="blogDescript" column="blog_descript"/>
+        <result property="blogPortrait" column="blog_portrait"/>
+    </resultMap>
+
+    <!-- BlogConfig queryBlogConfigById(@Param("blogId") int blogId) -->
+    <select id="queryBlogConfigById" resultMap="blogConfigMap">
+        select * from blog_config where blog_id=#{blogId}
+    </select>
+
+    <!-- BlogConfig queryLatestBlogConfig() -->
+    <select id="queryLatestBlogConfig" resultMap="blogConfigMap">
+        select * from blog_config where blog_id=(select max(blog_id) from blog_config)
+    </select>
+
+    <!-- int updateBlogConfig(BlogConfig blogConfig) -->
+    <update id="updateBlogConfig">
+        update blog_config set
+        blog_name = #{blogName},
+        blog_subtitle = #{blogSubtitle},
+        blog_email = #{blogEmail},
+        blog_github = #{blogGithub},
+        blog_qq = #{blogQQ},
+        blog_descript = #{blogDescript},
+        blog_portrait = #{blogPortrait}
+        where
+        blog_id = #{blogId}
+    </update>
+
+    <!-- int insertBlogConfig(BlogConfig blogConfig) -->
+    <insert id="insertBlogConfig">
+        insert into blog_config
+        (blog_name, blog_subtitle, blog_email, blog_github, blog_qq, blog_descript, blog_portrait)
+        values
+        (#{blogName}, #{blogSubtitle}, #{blogEmail}, #{blogGithub}, #{blogQQ}, #{blogDescript}, #{blogPortrait})
+    </insert>
+
+    <!-- int deleteBlogConfigById(@Param("blogId") int blogId) -->
+    <delete id="deleteBlogConfigById">
+        delete from blog_config where blog_id=#{blogId}
+    </delete>
+
+</mapper>

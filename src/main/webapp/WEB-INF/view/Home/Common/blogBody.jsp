@@ -8,7 +8,7 @@
         <meta name="description" content="SimpleBlog">
         <meta name="author" content="Kajune">
 
-        <title>Kajune's Blog</title>
+        <title>${sessionBlogConfig.blogName}'s Blog</title>
 
         <%-- 引入依赖文件 --%>
         <%@ include file="head.jsp"%>
@@ -20,7 +20,7 @@
         <!-- 导航栏 -->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="/" style="font-size: 20px">Kajune's Blog</a>
+                <a class="navbar-brand" href="/" style="font-size: 20px">${sessionBlogConfig.blogName}'s Blog</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -58,7 +58,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/KajuneLeon" target="view_window" style="font-size: 20px">Github</a>
+                            <a class="nav-link" href="${sessionBlogConfig.blogGithub}" target="view_window" style="font-size: 20px">Github</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/admin/" style="font-size: 20px">进入后台</a>
@@ -83,7 +83,7 @@
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <ul class="list-inline text-center">
                             <li class="list-inline-item">
-                                <a href="http://wpa.qq.com/msgrd?V=3&amp;uin=1481177598&amp;Site=QQ&amp;Menu=yes" target="view_window">
+                                <a href="http://wpa.qq.com/msgrd?V=3&amp;uin=${sessionBlogConfig.blogQQ}&amp;Site=QQ&amp;Menu=yes" target="view_window">
                 <span class="fa-stack fa-lg">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i class="fab fa-qq fa-stack-1x fa-inverse"></i>
@@ -91,7 +91,7 @@
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="https://github.com/KajuneLeon">
+                                <a href="${sessionBlogConfig.blogGithub}">
                 <span class="fa-stack fa-lg">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i class="fab fa-github fa-stack-1x fa-inverse"></i>
@@ -99,7 +99,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <p class="copyright text-muted">Copyright &copy; Kajune 2020</p>
+                        <p class="copyright text-muted">Copyright &copy; ${sessionBlogConfig.blogName} 2020</p>
                     </div>
                 </div>
             </div>

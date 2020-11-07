@@ -25,10 +25,10 @@
             <!-- 侧边栏 -->
             <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
                 <ul class="nav sidebar-nav">
-                    <li class="sidebar-brand"><a href="/admin">Kajune's Blog</a></li>
+                    <li class="sidebar-brand"><a href="/admin">${sessionBlogConfig.blogName}'s Blog</a></li>
                     <li>
                         <c:if test="${empty user.userPortrait}">
-                            <img class="img-rounded" src="/uploads/github.jpg" alt="头像"/>
+                            <img class="img-rounded" src="/uploads/default.jpg" alt="头像"/>
                         </c:if>
                         <c:if test="${not empty user.userPortrait}">
                             <img class="img-rounded" src="${user.userPortrait}" alt="头像"/>
@@ -50,6 +50,9 @@
                             <li><a href="/admin/article/list"><i class="glyphicon glyphicon-book"></i>&nbsp;&nbsp;全部文章</a></li>
                             <li><a href="/admin/category"><i class="glyphicon glyphicon-tags"></i>&nbsp;&nbsp;全部分类</a></li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="/admin/blog/edit"><i class="glyphicon glyphicon-edit"></i>&nbsp;&nbsp;&nbsp;&nbsp;设置</a>
                     </li>
                     <li>
                         <!-- Button trigger modal -->

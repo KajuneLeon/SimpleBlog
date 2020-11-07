@@ -53,7 +53,7 @@
             flowChart: true,             // 开启流程图支持，默认关闭
             sequenceDiagram: true,       // 开启时序/序列图支持，默认关闭,
             toolbarIcons : function() {  //自定义工具栏，后面有详细介绍
-                return editormd.toolbarModes['simple']; // full, simple, mini
+                return editormd.toolbarModes['full']; // full, simple, mini
             },
         });
     </script>

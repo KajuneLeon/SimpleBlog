@@ -41,6 +41,10 @@
     <!-- 拦截器配置 -->
     <mvc:interceptors>
         <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.jiajunliang.ssm.simpleblog.interceptor.ConfigLoaderInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
             <mvc:mapping path="/admin/**"/>
             <bean class="com.jiajunliang.ssm.simpleblog.interceptor.AuthorityInterceptor"/>
         </mvc:interceptor>

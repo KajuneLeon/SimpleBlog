@@ -9,8 +9,8 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1>Kajune's Blog</h1>
-            <span class="subheading">&lt;!-- 分享技术，分享错误，分享成长 --&gt;</span>
+            <h1>${sessionBlogConfig.blogName}'s Blog</h1>
+            <span class="subheading">${sessionBlogConfig.blogSubtitle}</span>
           </div>
         </div>
       </div>

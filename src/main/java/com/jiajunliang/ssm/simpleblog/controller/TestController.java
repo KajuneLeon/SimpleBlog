@@ -39,11 +39,11 @@ public class TestController {
         return "Home/About/about";
     }
 
-    @RequestMapping(value = {"/admin"})
-    public String admin() {
-        System.out.println("hi");
-        return "Admin/homepage";
-    }
+//    @RequestMapping(value = {"/admin"})
+//    public String admin() {
+//        System.out.println("hi");
+//        return "Admin/homepage";
+//    }
 
 //    @RequestMapping(value = {"/admin/user"})
 //    public String user() {
@@ -82,5 +82,10 @@ public class TestController {
         model.addAttribute("test", 1);
         return "Home/success";
     }
+
+//    @RequestMapping(value = {"/admin/blog/edit"})
+//    public String blogEdit() {
+//        return "Admin/Blog/edit";
+//    }
 
 }

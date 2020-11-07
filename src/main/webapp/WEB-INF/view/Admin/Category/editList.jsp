@@ -10,14 +10,26 @@
         <div class="container tableContainer">
             <div class="col-sm-12 col-md-3">
                 <form action="#" method="post">
-                    <div class="form-group"></div>
+                    <h3>添加一级分类</h3>
                     <div class="form-group">
-                        <label for="fatherCategory">一级分类</label>
-                        <input id="fatherCategory" class="form-control" value="" name="fatherCategory"/>
+                        <label for="firstCategory">一级分类</label>
+                        <input id="firstCategory" class="form-control" value="" name="categoryName"/>
+                    </div>
+                    <input type="submit" class="btn btn-success" value="保存"/>
+                </form>
+                <form action="#" method="post">
+                    <h3>添加二级分类</h3>
+                    <div class="form-group">
+                        <label for="parentCategory">一级分类</label>
+                        <select id="parentCategory" class="form-control" name="parentCategory">
+                            <option selected="selected">---请选择一级类---</option>
+                            <option>Java</option>
+                            <option>2</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="sonCategory">二级分类</label>
-                        <input id="sonCategory" class="form-control" value="" name="sonCategory"/>
+                        <label for="secondCategory">二级分类</label>
+                        <input id="secondCategory" class="form-control" value="" name="categoryName"/>
                     </div>
                     <input type="submit" class="btn btn-success" value="保存"/>
                 </form>

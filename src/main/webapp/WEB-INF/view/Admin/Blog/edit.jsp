@@ -5,42 +5,46 @@
 <%-- 用户信息表单 --%>
 <rapid:override name="siteContent">
     <div class="container">
-        <div style="font-size: 50px; color: white; text-align: center">用户信息</div>
+        <div style="font-size: 50px; color: white; text-align: center">博客信息</div>
         <div class="container userContainer">
             <div class="form-group">
                 <h3 style="color: red">${empty msg ? "": msg}</h3>
             </div>
-            <form action="/admin/user/updatePortrait" method="post" enctype="multipart/form-data">
+            <form action="/admin/blog/updatePortrait" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="avatar">头像</label><br/>
-                    <img id="avatarImg"class="img-rounded" src="${user.userPortrait}" style="width: 100px;height: 100px"/><br/><br/>
+                    <label for="avatar">博客头像</label><br/>
+                    <img id="avatarImg"class="img-rounded" src="${blogConfig.blogPortrait}" style="width: 100px;height: 100px"/><br/><br/>
                     <input id="avatar" class="btn btn-success" type="file" accept="image/jpeg" name="portrait"/><br/>
                     <input type="submit" class="btn btn-success" type="text" value="上传"/>
                 </div>
             </form>
-            <form action="/admin/user/update/${user.userId}" method="post">
+            <form action="/admin/blog/update" method="post">
                 <input type="hidden" name="_method" value="PUT"/>
-                <input type="hidden" name="userPortrait" value="${user.userPortrait}">
+                <input type="hidden" name="blogId" value="${blogConfig.blogId}"/>
+                <input type="hidden" name="blogPortrait" value="${blogConfig.blogPortrait}">
                 <div class="form-group">
-                    <label for="username">用户名</label>
-                    <input id="username" class="form-control" type="text" value="${user.userName}" name="userName"/>
-                    <h5 id="usernameMsg"style="color: red"></h5>
+                    <label for="blogName">博客名</label>
+                    <input id="blogName" class="form-control" type="text" value="${blogConfig.blogName}" name="blogName"/>
                 </div>
                 <div class="form-group">
-                    <label for="password">密码</label>
-                    <input id="password" class="form-control" type="password" value="${user.userPassword}" name="userPassword"/>
+                    <label for="blogSubtitle">副标题</label>
+                    <input id="blogSubtitle" class="form-control" type="text" value="${blogConfig.blogSubtitle}" name="blogSubtitle"/>
                 </div>
                 <div class="form-group">
-                    <label for="email">邮箱</label>
-                    <input id="email" class="form-control" type="text" value="${user.userEmail}" name="userEmail"/>
+                    <label for="blogEmail">邮箱</label>
+                    <input id="blogEmail" class="form-control" type="text" value="${blogConfig.blogEmail}" name="blogEmail"/>
                 </div>
                 <div class="form-group">
-                    <label for="github">GitHub</label>
-                    <input id="github" class="form-control" type="text" value="${user.userGithub}" name="userGithub"/>
+                    <label for="blogGithub">GitHub</label>
+                    <input id="blogGithub" class="form-control" type="text" value="${blogConfig.blogGithub}" name="blogGithub"/>
                 </div>
                 <div class="form-group">
-                    <label for="description">自我描述</label>
-                    <textarea id="description" class="form-control" name="userDescript">${user.userDescript}</textarea>
+                    <label for="blogQQ">QQ</label>
+                    <input id="blogQQ" class="form-control" type="text" value="${blogConfig.blogQQ}" name="blogQQ"/>
+                </div>
+                <div class="form-group">
+                    <label for="blogDescript">博客描述</label>
+                    <textarea id="blogDescript" class="form-control" name="blogDescript">${blogConfig.blogDescript}</textarea>
                 </div>
                 <input type="submit" class="btn btn-success" type="text" value="保存"/>
             </form>

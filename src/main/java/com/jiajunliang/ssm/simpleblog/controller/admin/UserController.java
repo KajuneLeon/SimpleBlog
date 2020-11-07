@@ -30,7 +30,7 @@ import java.util.Date;
 public class UserController {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @RequestMapping(value = {"/login"})
     public String loginPage(@CookieValue(value = "username", required = false) String username,
@@ -158,7 +158,7 @@ public class UserController {
     public String userPortraitUpdate(MultipartFile portrait, HttpServletRequest request) throws IOException {
         // upload
         User user = (User) request.getSession().getAttribute("user");
-        String fileName = user.getUserName() + user.getUserId() + portrait.getOriginalFilename();
+        String fileName = user.getUserName() + "Portrait-"+ portrait.getOriginalFilename();
         portrait.transferTo(new File("D:\\JavaProject\\SimpleBlog-uploads\\" + fileName));
         user.setUserPortrait("/uploads/"+fileName);
         // save
