@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace:待实现Dao接口的全类名 -->
+<mapper namespace="com.jiajunliang.ssm.simpleblog.dao.CategoryDao">
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+    <resultMap id="categoryMap" type="com.jiajunliang.ssm.simpleblog.bean.Category">
+        <id property="categoryId" column="category_id"/>
+        <result property="categoryPId" column="category_pid"/>
+        <result property="categoryName" column="category_name"/>
+    </resultMap>
+
+    <!-- Category queryCategoryById(int categoryId) -->
+    <select id="queryCategoryById" resultMap="categoryMap">
+        select * from category where category_id = #{categoryId}
+    </select>
+
+    <!-- List<Category> queryAllCategory() -->
+    <select id="queryAllCategory" resultMap="categoryMap">
+        select * from category
+    </select>
+
+    <!-- List<Category> queryAllFirstCategory() -->
+    <select id="queryAllFirstCategory" resultMap="categoryMap">
+        select * from category where category_pid=0
+    </select>
+
+    <!-- int updateCategory(Category category) -->
+    <update id="updateCategory">
+        update category set
+        category_pid = #{categoryPId},
+        category_name = #{categoryName}
+        where
+        category_id = #{categoryId}
+    </update>
+
+    <!-- int insertCategory(Category category) -->
+    <insert id="insertCategory">
+        insert into category
+        (category_pid, category_name)
+        values
+        (#{categoryPId}, #{categoryName})
+    </insert>
+
+    <!-- int deleteCategoryById(@Param("categoryId") int categoryId) -->
+    <delete id="deleteCategoryById">
+        delete from category where category_id = #{categoryId} or category_pid = #{categoryId}
+    </delete>
+
+
+
+</mapper>

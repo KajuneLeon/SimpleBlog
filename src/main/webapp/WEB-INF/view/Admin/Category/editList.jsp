@@ -21,10 +21,10 @@
                     <h3>添加二级分类</h3>
                     <div class="form-group">
                         <label for="parentCategory">一级分类</label>
-                        <select id="parentCategory" class="form-control" name="parentCategory">
+                        <select id="parentCategory" class="form-control" name="categoryPId">
                             <option selected="selected">---请选择一级类---</option>
-                            <option>1</option>
-                            <option>2</option>
+                            <option value="1">Java</option>
+                            <option value="2">JavaWeb</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -41,21 +41,19 @@
                     <tr class="active">
                         <th>id</th>
                         <th>pid</th>
-                        <th>一级分类</th>
-                        <th>二级分类</th>
+                        <th>分类名</th>
                         <th>文章数</th>
                         <th>操作</th>
                     </tr>
-                    <c:forEach begin="1" end="10">
+                    <c:forEach begin="1" end="6">
                         <tr>
                             <td>#id</td>
                             <td>#pid</td>
-                            <td>#pCategory</td>
                             <td>#category</td>
                             <td>#count</td>
                             <td>
-                                <a class="btn btn-success" href="#">编辑</a>
-                                <a class="btn btn-danger" href="#">删除</a>
+                                <a class="btn btn-success small" href="#">编辑</a>
+                                <a class="btn btn-danger small" href="#">删除</a>
                             </td>
                         </tr>
                     </c:forEach>
