@@ -23,7 +23,7 @@
                         <label for="parentCategory">一级分类</label>
                         <select id="parentCategory" class="form-control" name="parentCategory">
                             <option selected="selected">---请选择一级类---</option>
-                            <option>Java</option>
+                            <option>1</option>
                             <option>2</option>
                         </select>
                     </div>
