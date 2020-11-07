@@ -63,11 +63,11 @@ public class TestController {
         return "Admin/Article/edit";
     }
 
-    @RequestMapping(value = {"/admin/category"})
-    public String category() {
-        System.out.println("hi");
-        return "Admin/Category/editList";
-    }
+//    @RequestMapping(value = {"/admin/category"})
+//    public String category() {
+//        System.out.println("hi");
+//        return "Admin/Category/editList";
+//    }
 
 //    @RequestMapping(value = {"/login"})
 //    public String login() {
