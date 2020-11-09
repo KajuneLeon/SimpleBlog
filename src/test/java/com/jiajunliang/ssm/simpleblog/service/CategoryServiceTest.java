@@ -36,6 +36,13 @@ public class CategoryServiceTest {
     }
 
     @Test
+    public void getFirstAndSecondCategoryIdById() {
+        System.out.println(categoryService.getFirstAndSecondCategoryIdById(1));
+        System.out.println(categoryService.getFirstAndSecondCategoryIdById(2));
+        System.out.println(categoryService.getFirstAndSecondCategoryIdById(4));
+    }
+
+    @Test
     public void addCategory() {
         Category category = new Category();
         category.setCategoryPId(10);

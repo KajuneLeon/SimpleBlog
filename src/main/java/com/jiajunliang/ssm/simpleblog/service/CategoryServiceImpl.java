@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -30,6 +31,29 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public List<Category> getAllCategory() {
         return categoryDao.queryAllCategory();
+    }
+
+    @Override
+    public List<Integer> getFirstAndSecondCategoryIdById(int categoryId) {
+        // 获取当前类信息
+        Category category = categoryDao.queryCategoryById(categoryId);
+
+        List<Category> subCategories = null;
+
+        // 若是categoryPId==0则为一级分类，寻找其下所有二级分类
+        if(category.getCategoryPId()==0) {
+            subCategories = categoryDao.queryAllCategoryByPId(category.getCategoryId());
+        }
+
+        // 保存所有categoryId
+        List<Integer> categoriesId = new LinkedList<>();
+        categoriesId.add(category.getCategoryId());
+        if(subCategories != null) {
+            for(Category subcategory: subCategories) {
+                categoriesId.add(subcategory.getCategoryId());
+            }
+        }
+        return categoriesId;
     }
 
     @Override

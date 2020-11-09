@@ -7,6 +7,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -34,9 +36,23 @@ public class ArticleDaoTest {
     }
 
     @Test
+    public void queryArticlesByStatus() {
+        articleDao.queryArticlesByStatus(1).forEach(System.out::println);
+    }
+
+    @Test
     public void queryArticleAmountByCategoryId() {
         System.out.println(articleDao.queryArticleAmountByCategoryId(2));
         System.out.println(articleDao.queryArticleAmountByCategoryId(4));
+    }
+
+    @Test
+    public void queryIssuedArticleByCategories() {
+        List<Integer> list = new LinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        articleDao.queryIssuedArticleByCategories(list).forEach(System.out::println);
     }
 
     @Test

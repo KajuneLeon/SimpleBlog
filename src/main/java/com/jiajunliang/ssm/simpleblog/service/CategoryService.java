@@ -19,6 +19,15 @@ public interface CategoryService {
     List<Category> getAllCategory();
 
     /**
+     * Get the first category and second category if the input categoryId is a first category's id
+     * else
+     * only get this categoryId
+     * @param categoryId a category id
+     * @return category list
+     */
+    List<Integer> getFirstAndSecondCategoryIdById(int categoryId);
+
+    /**
      * Get a specific category by categoryId
      * @param categoryId an integer number
      * @return a category encapsulates id, pid and name

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="rapid" uri="http://www.rapid-framework.org.cn/rapid" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <rapid:override name="siteContent">
   <!-- 首部页面 -->
@@ -22,56 +23,35 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
+
         <!-- 文章块 -->
-        <div class="post-preview">
-          <a href="/article/post">
-            <h2 class="post-title">
-              #标题
-            </h2>
-            <h3 class="post-subtitle">
-              #副标题（摘要）
-            </h3>
-          </a>
-          <p class="post-meta">时间：# 时间</p>
-        </div>
+        <c:forEach items="${pageInfo.list}" var="article">
+          <div class="post-preview">
+            <a href="/article/${article.articleId}">
+              <h2 class="post-title">
+                ${article.articleTitle}
+              </h2>
+              <h4 class="post-subtitle">
+                <c:forEach items="${sessionCategories}" var="category">
+                  <c:if test="${article.articleCategoryId==category.categoryId}">
+                    <c:if test="${category.categoryPId!=0}">
+                      <c:forEach items="${sessionCategories}" var="pCategory">
+                        <c:if test="${category.categoryPId==pCategory.categoryId}">
+                          #${pCategory.categoryName}&nbsp;&nbsp;&nbsp;&nbsp;
+                        </c:if>
+                      </c:forEach>
+                    </c:if>
+                    #${category.categoryName}
+                  </c:if>
+                </c:forEach>
+              </h4>
+            </a>
+            <p class="post-meta">时间：${article.articleDate}</p>
+          </div>
+          <hr>
+        </c:forEach>
         <!-- 文章块结束 -->
-        <hr>
-        <div class="post-preview">
-          <a href="Article/post.jsp">
-            <h2 class="post-title">
-              #标题
-            </h2>
-            <h3 class="post-subtitle">
-              #副标题（摘要）
-            </h3>
-          </a>
-          <p class="post-meta">时间：# 时间</p>
-        </div>
-        <hr>
-        <div class="post-preview">
-          <a href="Article/post.jsp">
-            <h2 class="post-title">
-              #标题
-            </h2>
-            <h3 class="post-subtitle">
-              #副标题（摘要）
-            </h3>
-          </a>
-          <p class="post-meta">时间：# 时间</p>
-        </div>
-        <hr>
-        <div class="post-preview">
-          <a href="Article/post.jsp">
-            <h2 class="post-title">
-              #标题
-            </h2>
-            <h3 class="post-subtitle">
-              #副标题（摘要）
-            </h3>
-          </a>
-          <p class="post-meta">时间：# 时间</p>
-        </div>
-        <hr>
+
         <!-- 页脚 -->
         <%@ include file="Common/page.jsp"%>
       </div>

@@ -39,32 +39,15 @@
                                 文章列表
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <%--<li>
-                                    <div class="dropdown-submenu">
-                                        <a class="dropdown-item" tabindex="-1" href="#">JavaEE</a>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <a class="dropdown-item" href="#">集合</a>
-                                            <a class="dropdown-item" href="#">多线程</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="dropdown-divider"></li>
-                                <li>
-                                    <a class="dropdown-item" href="#">Java2EE</a>
-                                </li>
-                                <li class="dropdown-divider"></li>
-                                <li>
-                                    <a class="dropdown-item" href="#">Spring</a>
-                                </li>--%>
                                 <c:forEach items="${sessionCategories}" var="category">
                                     <c:if test="${category.categoryPId == 0}">
                                         <li>
                                             <div class="dropdown-submenu">
-                                                <a class="dropdown-item" tabindex="-1" href="#">${category.categoryName}</a>
+                                                <a class="dropdown-item" tabindex="-1" href="/articleCategoryList?categoryId=${category.categoryId}">${category.categoryName}</a>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                                     <c:forEach items="${sessionCategories}" var="subCategory">
                                                         <c:if test="${subCategory.categoryPId == category.categoryId}">
-                                                            <a class="dropdown-item" href="#">${subCategory.categoryName}</a>
+                                                            <a class="dropdown-item" href="/articleCategoryList?categoryId=${subCategory.categoryId}">${subCategory.categoryName}</a>
                                                         </c:if>
                                                     </c:forEach>
                                                 </div>

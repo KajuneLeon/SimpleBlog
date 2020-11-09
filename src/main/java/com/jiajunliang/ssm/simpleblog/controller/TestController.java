@@ -20,24 +20,23 @@ public class TestController {
 
     @Autowired
     UserDao userDao;
+//    @RequestMapping(value = {"/"})
+//    public String index() {
+//        System.out.println("hi");
+//        return "Home/index";
+//    }
 
-    @RequestMapping(value = {"/"})
-    public String index() {
-        System.out.println("hi");
-        return "Home/index";
-    }
+//    @RequestMapping(value = {"/article/post"})
+//    public String post() {
+//        System.out.println("hi");
+//        return "Home/Article/post";
+//    }
 
-    @RequestMapping(value = {"/article/post"})
-    public String post() {
-        System.out.println("hi");
-        return "Home/Article/post";
-    }
-
-    @RequestMapping(value = {"/about"})
-    public String about() {
-        System.out.println("hi");
-        return "Home/About/about";
-    }
+//    @RequestMapping(value = {"/about"})
+//    public String about() {
+//        System.out.println("hi");
+//        return "Home/About/about";
+//    }
 
 //    @RequestMapping(value = {"/admin"})
 //    public String admin() {

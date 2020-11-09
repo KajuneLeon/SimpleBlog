@@ -28,6 +28,18 @@ public interface ArticleService {
     List<Article> getArticlesByCategoryId(int categoryId);
 
     /**
+     * Get all articles that are issued
+     * @return article list
+     */
+    List<Article> getArticlesIssued();
+
+    /**
+     * Get all articles that are issued and belongs to a specific category
+     * @return article list
+     */
+    List<Article> getIssuedArticlesByCategoryIds(List<Integer> categoryIds);
+
+    /**
      * Count the amount of articles belong to specific category
      * @param categoryId specify category
      * @return amount of articles that fulfill requirement

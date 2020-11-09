@@ -41,7 +41,30 @@
                 <div style="text-align: center" class="form-group">
                     分类
                     <select id="parentCategory" name="articleCategoryId">
+
                         <c:forEach items="${categories}" var="category">
+                            <c:if test="${category.categoryPId==0}">
+                                <c:if test="${category.categoryId==article.articleCategoryId}">
+                                    <option value="${category.categoryId}" selected>--- ${category.categoryName} ---</option>
+                                </c:if>
+                                <c:if test="${category.categoryId!=article.articleCategoryId}">
+                                    <option value="${category.categoryId}">--- ${category.categoryName} ---</option>
+                                </c:if>
+                                <c:forEach items="${categories}" var="subCategory">
+                                    <c:if test="${subCategory.categoryPId!=0 and subCategory.categoryPId==category.categoryId}">
+                                        <c:if test="${subCategory.categoryId==article.articleCategoryId}">
+                                            <option value="${subCategory.categoryId}" selected>${subCategory.categoryName}</option>
+                                        </c:if>
+                                        <c:if test="${subCategory.categoryId!=article.articleCategoryId}">
+                                            <option value="${subCategory.categoryId}">${subCategory.categoryName}</option>
+                                        </c:if>
+                                    </c:if>
+                                </c:forEach>
+                            </c:if>
+                        </c:forEach>
+
+                        <%-- deprecated--%>
+                        <%--<c:forEach items="${categories}" var="category">
                             <c:if test="${category.categoryPId==0}">
                                 <c:if test="${category.categoryId==article.articleCategoryId}">
                                     <option value="${category.categoryId}" selected>--- ${category.categoryName} ---</option>
@@ -58,7 +81,8 @@
                                     <option value="${category.categoryId}">${category.categoryName}</option>
                                 </c:if>
                             </c:if>
-                        </c:forEach>
+                        </c:forEach>--%>
+
                     </select>
                 </div>
                 <div style="text-align: center" class="form-group">

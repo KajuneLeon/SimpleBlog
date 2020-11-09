@@ -26,6 +26,11 @@
         select * from category where category_pid=0 order by category_id
     </select>
 
+    <!-- List<Category> queryAllCategoryByPId(@Param("categoryPId") int categoryPId) -->
+    <select id="queryAllCategoryByPId" resultMap="categoryMap">
+        select * from category where category_pid=#{categoryPId}
+    </select>
+
     <!-- int updateCategory(Category category) -->
     <update id="updateCategory">
         update category set

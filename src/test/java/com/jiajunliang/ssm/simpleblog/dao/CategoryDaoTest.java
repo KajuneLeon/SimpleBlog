@@ -33,6 +33,11 @@ public class CategoryDaoTest {
     }
 
     @Test
+    public void queryAllCategoryByCategoryPId() {
+        categoryDao.queryAllCategoryByPId(4).forEach(System.out::println);
+    }
+
+    @Test
     public void updateCategory() {
         Category category = categoryDao.queryCategoryById(2);
         category.setCategoryName("对象和类");

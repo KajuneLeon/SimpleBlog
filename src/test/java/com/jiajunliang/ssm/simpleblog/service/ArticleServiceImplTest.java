@@ -6,6 +6,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -31,8 +33,22 @@ public class ArticleServiceImplTest {
     }
 
     @Test
+    public void getArticlesIssued() {
+        articleService.getArticlesIssued().forEach(System.out::println);
+    }
+
+    @Test
     public void countArticleByCategoryId() {
         System.out.println(articleService.countArticleByCategoryId(2));
+    }
+
+    @Test
+    public void getIssuedArticlesByCategoryId() {
+        List<Integer> list = new LinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        articleService.getIssuedArticlesByCategoryIds(list).forEach(System.out::println);
     }
 
     @Test

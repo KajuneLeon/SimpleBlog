@@ -1,11 +1,15 @@
 package com.jiajunliang.ssm.simpleblog.service;
 
 import com.jiajunliang.ssm.simpleblog.bean.Article;
+import com.jiajunliang.ssm.simpleblog.bean.Category;
 import com.jiajunliang.ssm.simpleblog.dao.ArticleDao;
+import com.jiajunliang.ssm.simpleblog.dao.CategoryDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -23,6 +27,9 @@ public class ArticleServiceImpl implements ArticleService{
     @Autowired
     ArticleDao articleDao;
 
+    @Autowired
+    CategoryDao categoryDao;
+
     @Override
     public Article getArticleById(int articleId) {
         return articleDao.queryArticleById(articleId);
@@ -36,6 +43,16 @@ public class ArticleServiceImpl implements ArticleService{
     @Override
     public List<Article> getArticlesByCategoryId(int categoryId) {
         return articleDao.queryArticlesByCategoryId(categoryId);
+    }
+
+    @Override
+    public List<Article> getArticlesIssued() {
+        return articleDao.queryArticlesByStatus(1);
+    }
+
+    @Override
+    public List<Article> getIssuedArticlesByCategoryIds(List<Integer> categoryIds) {
+        return articleDao.queryIssuedArticleByCategories(categoryIds);
     }
 
     @Override

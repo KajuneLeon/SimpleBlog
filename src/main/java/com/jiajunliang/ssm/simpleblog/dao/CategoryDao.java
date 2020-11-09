@@ -13,6 +13,8 @@ public interface CategoryDao {
 
     List<Category> queryAllFirstCategory();
 
+    List<Category> queryAllCategoryByPId(@Param("categoryPId") int categoryPId);
+
     int updateCategory(Category category);
 
     int insertCategory(Category category);

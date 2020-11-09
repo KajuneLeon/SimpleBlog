@@ -39,9 +39,23 @@
         select * from article where article_category_id=#{categoryId} order by article_id
     </select>
 
+    <!-- List<Article> queryArticlesByStatus(@Param("articleStatus") int articleStatus) -->
+    <select id="queryArticlesByStatus" resultMap="articleMap">
+        select * from article where article_status=#{articleStatus} order by article_date desc
+    </select>
+
     <!-- int queryArticleAmountByCategoryId(@Param("categoryId") int categoryId) -->
     <select id="queryArticleAmountByCategoryId" resultType="java.lang.Integer">
         select COUNT(*) from article where article_category_id=#{categoryId}
+    </select>
+
+    <!-- List<Article> queryIssuedArticleByCategories(@RequestParam("articleCategoryIds") List<Integer> articleCategoryIds) -->
+    <select id="queryIssuedArticleByCategories" resultMap="articleMap">
+        select * from article where article_status=1 and article_category_id in
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+        order by article_date desc
     </select>
 
     <!-- int updateArticle(Article article) -->
