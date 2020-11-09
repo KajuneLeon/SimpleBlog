@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace:待实现Dao接口的全类名 -->
+<mapper namespace="com.jiajunliang.ssm.simpleblog.dao.ArticleDao">
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+    <resultMap id="articleMap" type="com.jiajunliang.ssm.simpleblog.bean.Article">
+        <!--
+        private int articleId;
+        private String articleTitle;
+        private String articleContentHTML;
+        private String articleContentMD;
+        private int articleStatus;
+        private int articleCategoryId;
+        private Date articleDate;
+        -->
+        <id property="articleId" column="article_id"/>
+        <result property="articleTitle" column="article_title"/>
+        <result property="articleContentHTML" column="article_content_html"/>
+        <result property="articleContentMD" column="article_content_md"/>
+        <result property="articleStatus" column="article_status"/>
+        <result property="articleCategoryId" column="article_category_id"/>
+        <result property="articleDate" column="article_date"/>
+    </resultMap>
+
+    <!-- Article queryArticleById(@Param("articleId") int articleId) -->
+    <select id="queryArticleById" resultMap="articleMap">
+        select * from article where article_id=#{articleId}
+    </select>
+
+    <!-- List<Article> queryAllArticles() -->
+    <select id="queryAllArticles" resultMap="articleMap">
+        select * from article order by article_id
+    </select>
+
+    <!-- List<Article> queryArticlesByCategoryId(@Param("categoryId") int categoryId) -->
+    <select id="queryArticlesByCategoryId" resultMap="articleMap">
+        select * from article where article_category_id=#{categoryId} order by article_id
+    </select>
+
+    <!-- int queryArticleAmountByCategoryId(@Param("categoryId") int categoryId) -->
+    <select id="queryArticleAmountByCategoryId" resultType="java.lang.Integer">
+        select COUNT(*) from article where article_category_id=#{categoryId}
+    </select>
+
+    <!-- int updateArticle(Article article) -->
+    <update id="updateArticle">
+        update article set
+        article_title = #{articleTitle},
+        article_content_html = #{articleContentHTML},
+        article_content_md = #{articleContentMD},
+        article_status = #{articleStatus},
+        article_category_id = #{articleCategoryId},
+        article_date = #{articleDate}
+        where
+        article_id = #{articleId}
+    </update>
+
+    <!-- int insertArticle(Article article) -->
+    <insert id="insertArticle">
+        insert into article
+        (article_title, article_content_html, article_content_md, article_status, article_category_id, article_date)
+        values
+        (#{articleTitle}, #{articleContentHTML}, #{articleContentMD}, #{articleStatus}, #{articleCategoryId}, #{articleDate})
+    </insert>
+
+    <!-- int deleteArticleById(@Param("articleId") int articleId) -->
+    <delete id="deleteArticleById">
+        delete from article where article_id=#{articleId}
+    </delete>
+
+</mapper>

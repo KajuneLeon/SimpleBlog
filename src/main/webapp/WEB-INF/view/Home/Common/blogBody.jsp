@@ -1,5 +1,6 @@
 <%@ taglib prefix="rapid" uri="http://www.rapid-framework.org.cn/rapid" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="zh">
     <head>
 
@@ -38,7 +39,7 @@
                                 文章列表
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li>
+                                <%--<li>
                                     <div class="dropdown-submenu">
                                         <a class="dropdown-item" tabindex="-1" href="#">JavaEE</a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -54,7 +55,23 @@
                                 <li class="dropdown-divider"></li>
                                 <li>
                                     <a class="dropdown-item" href="#">Spring</a>
-                                </li>
+                                </li>--%>
+                                <c:forEach items="${sessionCategories}" var="category">
+                                    <c:if test="${category.categoryPId == 0}">
+                                        <li>
+                                            <div class="dropdown-submenu">
+                                                <a class="dropdown-item" tabindex="-1" href="#">${category.categoryName}</a>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                    <c:forEach items="${sessionCategories}" var="subCategory">
+                                                        <c:if test="${subCategory.categoryPId == category.categoryId}">
+                                                            <a class="dropdown-item" href="#">${subCategory.categoryName}</a>
+                                                        </c:if>
+                                                    </c:forEach>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </c:if>
+                                </c:forEach>
                             </ul>
                         </li>
                         <li class="nav-item">

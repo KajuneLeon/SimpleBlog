@@ -51,8 +51,10 @@ public class BlogController {
     public String blogPortraitUpdate(MultipartFile portrait, Model model) throws IOException {
         BlogConfig blogConfig = blogConfigService.getLatestBlogConfig();
         String fileName = "blogPortrait-" + portrait.getOriginalFilename();
-        portrait.transferTo(new File("D:\\JavaProject\\SimpleBlog-uploads\\" + fileName));
-        blogConfig.setBlogPortrait("/uploads/"+fileName);
+
+        portrait.transferTo(new File("D:\\JavaProject\\SimpleBlog-uploads\\blog\\" + fileName));
+
+        blogConfig.setBlogPortrait("/uploads/blog/"+fileName);
         if (blogConfigService.saveBlogConfig(blogConfig)) {
             model.addAttribute("msg", "保存成功!");
         } else {

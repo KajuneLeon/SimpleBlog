@@ -11,6 +11,7 @@ import java.io.Serializable;
  **/
 public class BlogConfig implements Serializable {
 
+    private static final long serialVersionUID = 5929839227781462199L;
     private int blogId;
     private String blogName;
     private String blogSubtitle;

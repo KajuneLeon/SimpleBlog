@@ -26,11 +26,24 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          #Article Content
+          <%--###########################################################################--%>
+          <p><img src="/uploads/article/1604830032751.jpg" alt="hi" title="hi">
+            <br>
+            这是我上传的图片
+            <br>
+            <img src="/uploads/article/1604830158003.jpg" alt="cat" title="cat">
+          </p>
+          <%--###########################################################################--%>
         </div>
       </div>
     </div>
   </article>
+
+  <script type="text/javascript">
+    // $("img").addClass("carousel-inner img-rounded");
+    $("img").addClass("img-fluid img-rounded");
+  </script>
+
   <!-- 主页面结束 -->
 </rapid:override>
 

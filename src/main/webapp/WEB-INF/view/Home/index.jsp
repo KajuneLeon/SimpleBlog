@@ -32,9 +32,7 @@
               #副标题（摘要）
             </h3>
           </a>
-          <p class="post-meta">作者：
-            <a href="#">#作者</a>
-            # 时间</p>
+          <p class="post-meta">时间：# 时间</p>
         </div>
         <!-- 文章块结束 -->
         <hr>
@@ -47,9 +45,7 @@
               #副标题（摘要）
             </h3>
           </a>
-          <p class="post-meta">作者：
-            <a href="#">#作者</a>
-            # 时间</p>
+          <p class="post-meta">时间：# 时间</p>
         </div>
         <hr>
         <div class="post-preview">
@@ -61,9 +57,7 @@
               #副标题（摘要）
             </h3>
           </a>
-          <p class="post-meta">作者：
-            <a href="#">#作者</a>
-            # 时间</p>
+          <p class="post-meta">时间：# 时间</p>
         </div>
         <hr>
         <div class="post-preview">
@@ -75,9 +69,7 @@
               #副标题（摘要）
             </h3>
           </a>
-          <p class="post-meta">作者：
-            <a href="#">#作者</a>
-            # 时间</p>
+          <p class="post-meta">时间：# 时间</p>
         </div>
         <hr>
         <!-- 页脚 -->

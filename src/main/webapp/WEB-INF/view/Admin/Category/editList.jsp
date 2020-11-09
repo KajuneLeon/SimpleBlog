@@ -65,7 +65,6 @@
                         <th>id</th>
                         <th>pid</th>
                         <th>分类名</th>
-                        <th>文章数</th>
                         <th>操作</th>
                     </tr>
                     <c:forEach items="${pageInfo.list}" var="category">
@@ -73,7 +72,6 @@
                             <td>${category.categoryId}</td>
                             <td>${category.categoryPId}</td>
                             <td>${category.categoryName}</td>
-                            <td>#count</td>
                             <td>
                                 <a class="btn btn-success" href="/admin/category/edit/${category.categoryId}/${pageInfo.pageNum}">编辑</a>
                                 <a class="btn btn-danger delete-btn" href="/admin/category/delete/${category.categoryId}/${pageInfo.pageNum}">删除</a>

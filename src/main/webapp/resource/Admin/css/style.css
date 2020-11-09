@@ -370,15 +370,15 @@ li img {
 }
 
 .tableContainer table tr th:first-child{
-  width: 10%;
+  width: 5%;
 }
 
 .tableContainer table tr th:nth-child(2){
-  width: 40%;
+  width: 30%;
 }
 
 .tableContainer table tr th:nth-child(3){
-  width: 10%;
+  width: 15%;
 }
 
 .tableContainer table tr th:nth-child(4){
@@ -386,7 +386,7 @@ li img {
 }
 
 .tableContainer table tr th:nth-child(5){
-  width: 15%;
+  width: 25%;
 }
 
 .tableContainer table tr th:nth-child(6){
@@ -399,11 +399,11 @@ li img {
 }
 
 .catContainer table tr th:first-child{
-  width: 10%;
+  width: 15%;
 }
 
 .catContainer table tr th:nth-child(2){
-  width: 10%;
+  width: 15%;
 }
 
 .catContainer table tr th:nth-child(3){
@@ -411,10 +411,6 @@ li img {
 }
 
 .catContainer table tr th:nth-child(4){
-  width: 10%;
-}
-
-.catContainer table tr th:nth-child(5){
   width: 30%;
 }
 

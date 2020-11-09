@@ -159,8 +159,10 @@ public class UserController {
         // upload
         User user = (User) request.getSession().getAttribute("user");
         String fileName = user.getUserName() + "Portrait-"+ portrait.getOriginalFilename();
-        portrait.transferTo(new File("D:\\JavaProject\\SimpleBlog-uploads\\" + fileName));
-        user.setUserPortrait("/uploads/"+fileName);
+
+        portrait.transferTo(new File("D:\\JavaProject\\SimpleBlog-uploads\\user\\" + fileName));
+
+        user.setUserPortrait("/uploads/user/"+fileName);
         // save
         boolean updateSuccess = userService.updateUser(user);
         if (updateSuccess) {

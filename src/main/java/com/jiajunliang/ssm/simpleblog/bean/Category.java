@@ -11,6 +11,7 @@ import java.io.Serializable;
  **/
 public class Category implements Serializable {
 
+    private static final long serialVersionUID = -1910477892776952189L;
     private int categoryId;
     private int categoryPId;
     private String categoryName;

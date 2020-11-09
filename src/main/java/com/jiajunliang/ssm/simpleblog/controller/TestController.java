@@ -51,17 +51,17 @@ public class TestController {
 //        return "Admin/User/edit";
 //    }
 
-    @RequestMapping(value = {"/admin/article/list"})
-    public String articleList() {
-        System.out.println("hi");
-        return "Admin/Article/list";
-    }
+//    @RequestMapping(value = {"/admin/article/list"})
+//    public String articleList() {
+//        System.out.println("hi");
+//        return "Admin/Article/list";
+//    }
 
-    @RequestMapping(value = {"/admin/article/edit"})
-    public String articleEdit() {
-        System.out.println("hi");
-        return "Admin/Article/edit";
-    }
+//    @RequestMapping(value = {"/admin/article/edit"})
+//    public String articleEdit() {
+//        System.out.println("hi");
+//        return "Admin/Article/edit";
+//    }
 
 //    @RequestMapping(value = {"/admin/category"})
 //    public String category() {
@@ -75,13 +75,13 @@ public class TestController {
 //        return "Admin/User/login";
 //    }
 
-    @RequestMapping(value = {"/admin/article/submitArticle"})
-    public String submitArticle(@RequestParam("blog-editormd-html-code") String blogMd, Model model) {
-        System.out.println(blogMd);
-        model.addAttribute("blogMd", blogMd);
-        model.addAttribute("test", 1);
-        return "Home/success";
-    }
+//    @RequestMapping(value = {"/admin/article/submitArticle"})
+//    public String submitArticle(@RequestParam("blog-editormd-html-code") String blogMd, Model model) {
+//        System.out.println(blogMd);
+//        model.addAttribute("blogMd", blogMd);
+//        model.addAttribute("test", 1);
+//        return "Home/success";
+//    }
 
 //    @RequestMapping(value = {"/admin/blog/edit"})
 //    public String blogEdit() {
