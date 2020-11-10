@@ -54,7 +54,7 @@ public class IndexController {
         // 获取当前分类所有从属id
         List<Integer> categoryIds = categoryService.getFirstAndSecondCategoryIdById(categoryId);
 
-        PageHelper.startPage(pn, 1);
+        PageHelper.startPage(pn, 6);
         List<Article> articles = articleService.getIssuedArticlesByCategoryIds(categoryIds);
 
         PageInfo<Article> articlePageInfo = new PageInfo<>(articles, 5);
