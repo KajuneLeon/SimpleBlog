@@ -6,7 +6,7 @@
     ![homepage](img/homepage.png)
     * 后台
     ![adminpage](img/adminpage.png)
-*目前，SimpleBlog项目完成了前后端的基本功能，支持：
+* 目前，SimpleBlog项目完成了前后端的基本功能，支持：
     * 博客信息管理
     * 多管理员管理
     * Markdown编辑器
