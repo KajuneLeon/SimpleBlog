@@ -1,7 +1,12 @@
 # 关于 SimpleBlog
 * Simple 是一个 SSM 初学者的实践项目，体现了 SSM 各个场景的使用；目前使用到的技术栈有：SSM + JSP + Bootstrap；
 博客前台首页由 [Clean Blog](https://startbootstrap.com/themes/clean-blog/) 修改所得，后端页面以一个侧边栏作为模板进行实现
-* 目前，SimpleBlog项目完成了前后端的基本功能，支持：
+* 预览
+    * 前台
+    ![homepage](img/homepage.png)
+    * 后台
+    ![adminpage](img/adminpage.png)
+*目前，SimpleBlog项目完成了前后端的基本功能，支持：
     * 博客信息管理
     * 多管理员管理
     * Markdown编辑器
@@ -15,9 +20,9 @@
 
 # 部署注意点
 * Tomcat中，项目部署路径 Application context 需要设置为 “/”，否则会出现静态资源加载失败的情况
-![application_context](application_context.png)
+![application_context](img/application_context.png)
 * 需要为上传文件夹配置路径 /uploads
-![application_context](upload_context.png)
+![upload_context](img/upload_context.png)
 
 
 
