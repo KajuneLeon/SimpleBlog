@@ -1,5 +1,5 @@
 # 关于 SimpleBlog
-* Simple 是一个 SSM 初学者的实践项目，体现了 SSM 各个场景的使用；目前使用到的技术栈有：SSM + JSP + Bootstrap；
+* SimpleBlog 是一个 SSM 初学者的实践项目，体现了 SSM 各个场景的使用；目前使用到的技术栈有：SSM + JSP + Bootstrap；
 博客前台首页由 [Clean Blog](https://startbootstrap.com/themes/clean-blog/) 修改所得，后端页面以一个侧边栏作为模板进行实现
 * 预览
     * 前台
