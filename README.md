@@ -13,8 +13,17 @@
     * 友情链接管理
 * 此外，该博客为首次 SSM 实践部署项目，底层代码存在一定的漏洞和缺陷，效率亦是问题。未来将会尝试使用 SpringBoot 等技术进行重构。
 
+# 部署注意点
+* Tomcat中，项目部署路径 Application context 需要设置为 “/”，否则会出现静态资源加载失败的情况
+![application_context](application_context.png)
+* 需要为上传文件夹配置路径 /uploads
+![application_context](upload_context.png)
+
+
+
+
 # 致谢
-* 感谢 Yanzhao Liu 的 [ForestBlog](https://github.com/saysky/ForestBlog) 的博客源码放出，该源码为我的博客设计提供需多思路！
+* 感谢 Yanzhao Liu 的 [ForestBlog](https://github.com/saysky/ForestBlog) 的博客源码放出，该源码为我的博客设计提供诸多思路！
     
 
      
